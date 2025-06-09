@@ -14,4 +14,5 @@ Sistema de Gestão Nutricional da ETEC Camargo Aranha
 
 ### 👾 Tecnologias utilizadas
 - Front-End: HTML5, CSS3, JavaScript
-- Back-end e Database: Firebase
+- Back-end; FireAuth e FireStore
+- Database: Firebase
