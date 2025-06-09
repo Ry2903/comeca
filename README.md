@@ -10,8 +10,6 @@ Sistema de Gestão Nutricional da ETEC Camargo Aranha
 - ✅ Controle de estoque em tempo real
 - ✅ Histórico de movimentações
 
----
-
 ### 👾 Tecnologias utilizadas
 - Front-End: HTML5, CSS3, JavaScript
 - Back-end; FireAuth e FireStore
