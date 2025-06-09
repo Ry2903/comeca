@@ -14,3 +14,6 @@ Sistema de Gestão Nutricional da ETEC Camargo Aranha
 - Front-End: HTML5, CSS3, JavaScript
 - Back-end; FireAuth e FireStore
 - Database: Firebase
+
+### 🌐 Visite o site em:
+**https://comeca.netlify.app/**
