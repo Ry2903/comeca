@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ComeCA</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca&family=Montserrat+Alternates&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styleLogin.css" />
+</head>
+<body>
+  <div id="auth-section">
+    <div class="container">
+      <section class="signup-section">
+        <h2>Crie seu acesso</h2>
+        <input type="text" id="signup-name" placeholder="Nome do usuário..." />
+        <input type="email" id="signup-email" placeholder="Email..." />
+        <input type="password" id="signup-password" placeholder="Senha..." />
+        <button id="signup-btn">Cadastrar</button>
+      </section>
+
+      <div class="divider">
+        <span>ou</span>
+      </div>
+
+      <section class="login-section">
+        <h2>Bem vindo de volta!</h2>
+        <input type="email" id="login-email" placeholder="Email" />
+        <input type="password" id="login-password" placeholder="Senha" />
+        <button id="login-btn">Entrar</button>
+        <p>
+            <a href="#" id="forgot-password">Esqueceu a senha?</a>
+        </p>
+      </section>
+    </div>
+  </div>
+
+  <div id="user-info" style="display:none">
+    <p>Logado como: <span id="user-email"></span></p>
+    <button id="logout-btn">Sair</button>
+  </div>
+
+  <script type="module" src="/js/login.js"></script>
+</body>
+</html>
