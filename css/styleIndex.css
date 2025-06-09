@@ -1,55 +1,33 @@
+/* RESET E FONTES */
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca&family=Montserrat+Alternates:wght@600&display=swap');
+
 body {
-  font-family: Arial, sans-serif;
-  margin: 20px 50px;
-  background-color: #fff;
-  color: #222;
+  font-family: 'Lexend Deca', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f2f0ef;
+  color: #333;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
 h1, h2 {
-  color: #2c3e50;
+  color: #2f6627;
+  font-family: 'Montserrat Alternates', sans-serif;
 }
 
-#lista-itens ul {
-  list-style: none;
-  padding-left: 0;
+main {
+  flex: 1;
+  max-width: 1000px;
+  margin: 30px auto;
+  padding: 20px;
 }
 
-#lista-itens li {
-  padding: 8px 0;
-  border-bottom: 1px solid #ddd;
-}
-
-input, select, button {
-  padding: 8px;
-  font-size: 1rem;
-  margin: 5px 0;
-  border-radius: 4px;
-  border: 1px solid #aaa;
-}
-
-button {
-  background-color: #28a745;
-  border: none;
-  color: white;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-button:hover {
-  background-color: #1e7e34;
-}
-
-form label {
-  display: block;
-  margin-top: 10px;
-}
-
+/* NAV */
 nav {
   width: 100%;
-  background-color: #2c3e50;
+  background-color: #7bb17b;
   color: white;
   padding: 10px 20px;
   box-sizing: border-box;
@@ -63,15 +41,14 @@ nav {
   justify-content: space-between;
 }
 
-/* Logo */
 .logo {
   font-weight: bold;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   color: white;
   text-decoration: none;
+  font-family: 'Montserrat Alternates', sans-serif;
 }
 
-/* Menu links */
 .nav-links {
   list-style: none;
   display: flex;
@@ -85,13 +62,13 @@ nav {
   text-decoration: none;
   font-weight: 600;
   transition: color 0.3s ease;
+  font-family: 'Lexend Deca', sans-serif;
 }
 
 .nav-links li a:hover {
-  color: #28a745;
+  color: #2f6627;
 }
 
-/* User and logout */
 .nav-user {
   display: flex;
   align-items: center;
@@ -106,9 +83,8 @@ nav {
   text-overflow: ellipsis;
 }
 
-/* Logout button */
 #logout-btn {
-  background-color: #e74c3c;
+  background-color: #d85615;
   border: none;
   color: white;
   padding: 6px 12px;
@@ -116,9 +92,67 @@ nav {
   cursor: pointer;
   font-weight: 600;
   transition: background-color 0.3s ease;
+  font-family: 'Lexend Deca', sans-serif;
 }
 
 #logout-btn:hover {
   background-color: #c0392b;
+}
+
+#controle-estoque {
+  margin: 40px auto;
+  padding: 20px;
+  width: 550px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+section {
+  margin-top: 30px;
+}
+
+#lista-itens ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+#lista-itens li {
+  padding: 8px 0;
+  border-bottom: 1px solid #ddd;
+  font-size: 1rem;
+}
+
+input, select, button {
+  padding: 10px;
+  font-size: 1rem;
+  margin: 5px 0;
+  border-radius: 5px;
+  border: 1px solid #aaa;
+  font-family: 'Lexend Deca', sans-serif;
+}
+
+input:focus, select:focus {
+  outline: 2px solid #28a745;
+}
+
+button[type="submit"] {
+  background-color: #28a745;
+  border: none;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #1e7e34;
+}
+
+form label {
+  display: block;
+  margin-top: 10px;
+  font-weight: 600;
 }
 

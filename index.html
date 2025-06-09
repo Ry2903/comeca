@@ -11,14 +11,10 @@
                 <a href="index.html" class="logo">ComeCA</a>
 
                 <ul class="nav-links">
-                    <li>
-                        <a href="index.html">Home</a>
-                    </li>
-                    <li>
-                        <a href="estoque.html">Cadastro de Itens</a>
-                    </li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="estoque.html">Cadastro de Itens</a></li>
+                    <li><a href="refeicoes.html">Controle</a></li>
                 </ul>
-
                 <div class="nav-user">
                     <span id="user-email-nav"></span>
                     <button id="logout-btn">Sair</button>
@@ -34,29 +30,6 @@
                 <h2>Itens no estoque</h2>
                 <ul id="itens-lista"></ul>
             </section>
-
-            <section id="movimentacoes">
-                <h2>Registrar Entrada/Saída</h2>
-                <form id="form-movimentacao">
-                    <label>Item:
-                        <select id="select-item"></select>
-                    </label><br/>
-
-                    <label>Tipo:
-                        <select id="tipo-movimentacao">
-                            <option value="entrada">Entrada</option>
-                            <option value="saida">Saída</option>
-                        </select>
-                    </label><br/>
-
-                    <label>Quantidade:
-                        <input type="number" id="quantidade" min="1" value="1"/>
-                    </label><br/>
-
-                    <button type="submit">Registrar</button>
-                </form>
-            </section>
-
         </div>
 
         <script type="module" src="/js/index.js"></script>

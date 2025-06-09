@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Histórico de Movimentações - ComeCA</title>
+  <link rel="stylesheet" href="/css/styleHistorico.css" />
+</head>
+<body>
+  <nav>
+            <div class="nav-container">
+                <a href="index.html" class="logo">ComeCA</a>
+
+                <ul class="nav-links">
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="estoque.html">Cadastro de Itens</a>
+                    </li>
+                </ul>
+
+                <div class="nav-user">
+                    <span id="user-email-nav"></span>
+                    <button id="logout-btn">Sair</button>
+                </div>
+            </div>
+        </nav>
+
+  <main>
+    <h1>Histórico de Movimentações</h1>
+
+    <section class="filtros">
+      <label>
+        Tipo:
+        <select id="filtro-tipo">
+          <option value="">Todos</option>
+          <option value="entrada">Entrada</option>
+          <option value="saida">Saída</option>
+        </select>
+      </label>
+
+      <label>
+        De:
+        <input type="date" id="filtro-data-inicio" />
+      </label>
+
+      <label>
+        Até:
+        <input type="date" id="filtro-data-fim" />
+      </label>
+
+      <button id="btn-filtrar">Filtrar</button>
+    </section>
+
+    <section class="tabela-container">
+      <table id="tabela-movimentacoes">
+        <thead>
+          <tr>
+            <th>Data e Hora</th>
+            <th>Tipo</th>
+            <th>Quantidade</th>
+            <th>Item</th>
+            <th>Usuário</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="paginacao">
+      <button id="btn-prev">Anterior</button>
+      <span id="pagina-atual">1</span> / <span id="total-paginas">1</span>
+      <button id="btn-next">Próximo</button>
+    </section>
+  </main>
+
+  <script type="module" src="/js/historico.js"></script>
+</body>
+</html>

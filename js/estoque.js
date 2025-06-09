@@ -2,6 +2,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/fireba
 import {
   getAuth,
   onAuthStateChanged,
+  signOut,
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 import {
   getFirestore,
@@ -27,8 +28,14 @@ const inputNome = document.getElementById("nome-item");
 const inputQuantidade = document.getElementById("quantidade-item");
 const inputRefeicao = document.getElementById("refeicao-item");
 
+const userEmailElement = document.getElementById("user-email-nav");
+const logoutBtn = document.getElementById("logout-btn");
+
 onAuthStateChanged(auth, (user) => {
-  if (!user) {
+  if (user) {
+    // Mostra displayName ou email
+    userEmailElement.textContent = user.displayName || user.email || "Usuário";
+  } else {
     alert("Você precisa estar logado para cadastrar produtos.");
     window.location.href = "login.html";
   }
@@ -51,6 +58,11 @@ formCadastro.addEventListener("submit", async (e) => {
     return;
   }
 
+  if (!refeicao) {
+    alert("Selecione a refeição.");
+    return;
+  }
+
   try {
     await addDoc(collection(db, "itens"), {
       nome,
@@ -63,4 +75,10 @@ formCadastro.addEventListener("submit", async (e) => {
   } catch (error) {
     alert("Erro ao cadastrar item: " + error.message);
   }
+});
+
+// Logout simples
+logoutBtn.addEventListener("click", async () => {
+  await signOut(auth);
+  window.location.href = "login.html";
 });

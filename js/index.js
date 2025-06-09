@@ -7,11 +7,7 @@ import {
 import {
   getFirestore,
   collection,
-  doc,
-  updateDoc,
-  serverTimestamp,
   onSnapshot,
-  getDoc
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
 const firebaseConfig = {
@@ -27,105 +23,40 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-const controleEstoqueSection = document.getElementById('controle-estoque');
 const itensLista = document.getElementById('itens-lista');
-const selectItem = document.getElementById('select-item');
-const formMovimentacao = document.getElementById('form-movimentacao');
-const tipoMovimentacao = document.getElementById('tipo-movimentacao');
-const quantidadeInput = document.getElementById('quantidade');
-
+const controleEstoque = document.getElementById('controle-estoque');
 const userEmailNav = document.getElementById('user-email-nav');
 const logoutBtn = document.getElementById('logout-btn');
+
+onAuthStateChanged(auth, (user) => {
+  if (!user) {
+    window.location.href = 'login.html';
+    return;
+  }
+
+  userEmailNav.textContent = user.email;
+  controleEstoque.style.display = 'block';
+
+  carregarItens();
+});
 
 logoutBtn.addEventListener('click', () => {
   signOut(auth);
 });
 
-onAuthStateChanged(auth, (user) => {
-  if (user) {
-    // Exibe o email do usuário logado na navbar
-userEmailNav.textContent = user.displayName || user.email;
-
-    // Exibe o controle de estoque
-    controleEstoqueSection.style.display = 'block';
-    escutarItens();
-  } else {
-    // Redireciona para a tela de login se não estiver autenticado
-    window.location.href = 'login.html';
-  }
-});
-
-function escutarItens() {
+function carregarItens() {
   const itensRef = collection(db, 'itens');
   onSnapshot(itensRef, (snapshot) => {
     itensLista.innerHTML = '';
-    selectItem.innerHTML = '';
-
     if (snapshot.empty) {
       itensLista.textContent = 'Nenhum item cadastrado.';
       return;
     }
-
     snapshot.forEach(docSnap => {
       const item = docSnap.data();
       const li = document.createElement('li');
       li.textContent = `${item.nome} — Estoque: ${item.quantidade || 0}`;
       itensLista.appendChild(li);
-
-      const option = document.createElement('option');
-      option.value = docSnap.id;
-      option.textContent = item.nome;
-      selectItem.appendChild(option);
     });
   });
 }
-
-formMovimentacao.addEventListener('submit', async (e) => {
-  e.preventDefault();
-
-  const itemId = selectItem.value;
-  const tipo = tipoMovimentacao.value;
-  const quantidade = Number(quantidadeInput.value);
-
-  if (!itemId) {
-    alert('Selecione um item.');
-    return;
-  }
-  if (quantidade <= 0) {
-    alert('Informe uma quantidade válida.');
-    return;
-  }
-
-  try {
-    const itemRef = doc(db, 'itens', itemId);
-    const itemDoc = await getDoc(itemRef);
-
-    if (!itemDoc.exists()) {
-      alert('Item não encontrado.');
-      return;
-    }
-
-    const itemData = itemDoc.data();
-    let novoEstoque = itemData.quantidade || 0;
-
-    if (tipo === 'entrada') {
-      novoEstoque += quantidade;
-    } else if (tipo === 'saida') {
-      if (quantidade > novoEstoque) {
-        alert('Quantidade de saída maior que o estoque disponível.');
-        return;
-      }
-      novoEstoque -= quantidade;
-    }
-
-    await updateDoc(itemRef, {
-      quantidade: novoEstoque,
-      ultimaAtualizacao: serverTimestamp()
-    });
-
-    alert('Movimentação registrada com sucesso!');
-    quantidadeInput.value = '1';
-  } catch (error) {
-    alert('Erro ao registrar movimentação: ' + error.message);
-  }
-});
