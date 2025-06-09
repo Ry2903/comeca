@@ -33,7 +33,6 @@ const logoutBtn = document.getElementById("logout-btn");
 
 onAuthStateChanged(auth, (user) => {
   if (user) {
-    // Mostra displayName ou email
     userEmailElement.textContent = user.displayName || user.email || "Usuário";
   } else {
     alert("Você precisa estar logado para cadastrar produtos.");
@@ -77,7 +76,6 @@ formCadastro.addEventListener("submit", async (e) => {
   }
 });
 
-// Logout simples
 logoutBtn.addEventListener("click", async () => {
   await signOut(auth);
   window.location.href = "login.html";

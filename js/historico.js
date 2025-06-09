@@ -42,7 +42,7 @@ logoutBtn.addEventListener('click', () => {
 onAuthStateChanged(auth, (user) => {
   if (user) {
     userEmailNav.textContent = user.displayName || user.email;
-    carregarPagina(); // carrega a primeira página
+    carregarPagina();
   } else {
     window.location.href = 'login.html';
   }
@@ -66,7 +66,7 @@ async function carregarPagina(direcao = "inicio") {
   } else if (direcao === "anterior" && pilhaPaginas.length > 1) {
     const penultimo = pilhaPaginas[pilhaPaginas.length - 2];
     q = query(movRef, orderBy("data", "desc"), startAt(penultimo), limit(pageSize));
-    pilhaPaginas.pop(); // volta uma página
+    pilhaPaginas.pop();
   } else {
     return;
   }

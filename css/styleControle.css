@@ -12,6 +12,22 @@ body {
   min-height: 100vh;
 }
 
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: bold;
+  font-size: 1.8rem;
+  color: white;
+  text-decoration: none;
+  font-family: 'Montserrat Alternates', sans-serif;
+}
+
+.logo-img {
+  height: 40px;
+  width: auto;
+}
+
 h1, h2 {
   color: #2f6627;
   font-family: 'Montserrat Alternates', sans-serif;
@@ -24,7 +40,6 @@ main {
   padding: 20px;
 }
 
-/* NAV */
 nav {
   width: 100%;
   background-color: #7bb17b;
@@ -78,7 +93,6 @@ nav {
   justify-content: flex-end;
 }
 
-/* NOME DO USUÁRIO: deixa quebrar linha, mostra tudo */
 #user-email-nav {
   white-space: normal;
   overflow: visible;
@@ -86,7 +100,6 @@ nav {
   max-width: none;
 }
 
-/* BOTÃO DE LOGOUT: tamanho correto */
 #logout-btn {
   background-color: #d85615;
   border: none;
@@ -170,7 +183,6 @@ button[type="submit"]:hover {
   background-color: #1e7e34;
 }
 
-/* Lista de refeições exibidas na direita, opcional */
 #lista-refeicoes ul {
   list-style: none;
   padding-left: 0;
@@ -186,8 +198,6 @@ button[type="submit"]:hover {
   font-size: 1rem;
   color: #444;
 }
-
-/* Responsividade */
 
 @media (max-width: 900px) {
   #container {

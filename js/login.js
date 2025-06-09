@@ -65,10 +65,8 @@ signupBtn.addEventListener('click', async () => {
   try {
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
 
-    // Atualiza displayName no perfil do usuário Firebase
     await updateProfile(userCredential.user, { displayName: nome });
 
-    // Salva dados no Firestore na coleção "usuarios"
     await setDoc(doc(db, 'usuarios', userCredential.user.uid), {
       nome,
       email,

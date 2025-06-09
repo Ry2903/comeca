@@ -115,7 +115,6 @@ formMovimentacao.addEventListener('submit', async (e) => {
       ultimaAtualizacao: serverTimestamp()
     });
 
-    // Adiciona registro no histórico das movimentações
     await addDoc(collection(db, 'movimentacoes'), {
       nomeItem: itemData.nome,
       tipo,
