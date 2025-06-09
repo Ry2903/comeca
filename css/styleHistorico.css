@@ -19,7 +19,7 @@ h1, h2 {
 
 main {
   flex: 1;
-  max-width: 1000px;
+  width: 750px;
   margin: 30px auto;
   padding: 20px;
 }
@@ -176,32 +176,44 @@ tbody tr:nth-child(even) {
 }
 
 /* Paginação */
-.paginacao {
+#btn-anterior, #btn-proximo, #btn-exportar-pdf{
   margin-top: 20px;
-  display: flex;
   align-items: center;
+  justify-items: center;
   justify-content: center;
   gap: 15px;
   font-weight: 600;
   font-size: 1rem;
 }
 
-.paginacao button {
-  padding: 6px 15px;
-  border-radius: 5px;
-  border: 1px solid #28a745;
-  background-color: white;
-  color: #28a745;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.paginacao button:hover {
-  background-color: #28a745;
+#btn-anterior, #btn-proximo, #btn-exportar-pdf{
+  padding: 8px 18px;
+  border-radius: 8px;
+  border: none;
+  background-color: #7bb17b;
   color: white;
+  font-weight: 600;
+  font-family: 'Lexend Deca', sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+/* Badges de tipo de movimentação */
+.badge {
+  padding: 4px 10px; 
+  border-radius: 20px;
+  font-weight: 600;
+  display: inline-block;
+  font-size: 0.95rem;
+  white-space: nowrap;
 }
 
-.paginacao button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
+.badge-entrada {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.badge-saida {
+  background-color: #f8d7da;
+  color: #721c24;
 }

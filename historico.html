@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Histórico de Movimentações - ComeCA</title>
+        <link rel="stylesheet" href="/css/styleHistorico.css"/>
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    </head>
+    <body>
+        <nav>
+            <div class="nav-container">
+                <a href="index.html" class="logo">ComeCA</a>
+                <ul class="nav-links">
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="estoque.html">Cadastro de Itens</a>
+                    </li>
+                    <li>
+                        <a href="controle.html">Controle</a>
+                    </li>
+                    <li>
+                        <a href="historico.html">Histórico</a>
+                    </li>
+                </ul>
+                <div class="nav-user">
+                    <i class="material-icons">sentiment_very_satisfied</i>
+                    <span id="user-email-nav"></span>
+                    <button id="logout-btn">Sair</button>
+                </div>
+            </div>
+        </nav>
+
+        <main>
+            <h1>Histórico de Movimentações</h1>
+            <section id="historico-movimentacoes">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Data/Hora</th>
+                            <th>Item</th>
+                            <th>Tipo</th>
+                            <th>Quantidade</th>
+                        </tr>
+                    </thead>
+                    <tbody id="movimentacoes-tbody">
+                        <!-- Linhas das movimentações serão inseridas aqui -->
+                    </tbody>
+                </table>
+            </section>
+
+            <div class="botoes-historico">
+                <button id="btn-anterior">⬅️ Anterior</button>
+                <button id="btn-proximo">Próximo ➡️</button>
+                <button id="btn-exportar-pdf">📄 Exportar PDF</button>
+            </div>
+        </main>
+
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+        <script type="module" src="/js/historico.js"></script>
+    </body>
+</html>

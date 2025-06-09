@@ -34,7 +34,7 @@ onAuthStateChanged(auth, (user) => {
     return;
   }
 
-  userEmailNav.textContent = user.email;
+  userEmailNav.textContent = user.displayName || user.email;
   controleEstoque.style.display = 'block';
 
   carregarItens();

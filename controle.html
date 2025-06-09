@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8"/>
         <title>ComeCA</title>
-        <link rel="stylesheet" href="/css/styleEstoque.css"/>
+        <link rel="stylesheet" href="/css/styleControle.css"/>
         <link
             rel="stylesheet"
             href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -12,7 +12,6 @@
         <nav>
             <div class="nav-container">
                 <a href="index.html" class="logo">ComeCA</a>
-
                 <ul class="nav-links">
                     <li>
                         <a href="index.html">Home</a>
@@ -27,7 +26,6 @@
                         <a href="historico.html">Histórico</a>
                     </li>
                 </ul>
-
                 <div class="nav-user">
                     <i class="material-icons">sentiment_very_satisfied</i>
                     <span id="user-email-nav"></span>
@@ -36,31 +34,28 @@
             </div>
         </nav>
 
-        <main>
-            <h1>Cadastro de Itens no Estoque</h1>
+        <div id="container">
+            <!-- Registrar Entrada/Saída -->
+            <section id="section-movimentacao">
+                <h2>Registrar Entrada/Saída</h2>
+                <form id="form-movimentacao">
+                    <label for="select-item">Item:</label>
+                    <select id="select-item" required="required"></select>
 
-            <form id="form-cadastro">
-                <label>Nome do Item:
-                    <input type="text" id="nome-item" required="required"/>
-                </label>
-
-                <label>Quantidade:
-                    <input type="number" id="quantidade-item" min="0" required="required"/>
-                </label>
-
-                <label>Refeição:
-                    <select id="refeicao-item" required="required">
-                        <option value="">Selecione</option>
-                        <option value="almoço">Almoço</option>
-                        <option value="jantar">Jantar</option>
-                        <option value="merenda seca">Merenda seca</option>
+                    <label for="tipo-movimentacao">Tipo:</label>
+                    <select id="tipo-movimentacao">
+                        <option value="entrada">Entrada</option>
+                        <option value="saida">Saída</option>
                     </select>
-                </label>
 
-                <button type="submit" class="green">Cadastrar</button>
-            </form>
-        </main>
+                    <label for="quantidade">Quantidade:</label>
+                    <input type="number" id="quantidade" min="1" value="1" required="required"/>
 
-        <script type="module" src="/js/estoque.js"></script>
+                    <button type="submit">Registrar</button>
+                </form>
+            </section>
+        </div>
+
+        <script type="module" src="/js/controle.js"></script>
     </body>
 </html>

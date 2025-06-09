@@ -11,7 +11,8 @@ import {
   updateDoc,
   serverTimestamp,
   onSnapshot,
-  getDoc
+  getDoc,
+  addDoc
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
 const firebaseConfig = {
@@ -112,6 +113,14 @@ formMovimentacao.addEventListener('submit', async (e) => {
     await updateDoc(itemRef, {
       quantidade: novoEstoque,
       ultimaAtualizacao: serverTimestamp()
+    });
+
+    // Adiciona registro no histórico das movimentações
+    await addDoc(collection(db, 'movimentacoes'), {
+      nomeItem: itemData.nome,
+      tipo,
+      quantidade,
+      data: serverTimestamp()
     });
 
     alert('Movimentação registrada com sucesso!');
